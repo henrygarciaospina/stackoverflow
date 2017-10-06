@@ -62,3 +62,5 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'toastr-rails', '~> 1.0', '>= 1.0.3'
 
 gem 'gravatar-ultimate', '~> 2.0'
+
+gem 'xmlrpc'

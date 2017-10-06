@@ -18,18 +18,18 @@
 @import "bootstrap";
 @import "toastr";
 
-.avatar_small {
-  width: 28px;
+.navbar-nav > li > a.avatar {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  img { width: 37px; }
 }
 
-.avatar_medium {
-  width: 48px;
-}
-
-.avatar_large {
-  width: 68px;
-}
-
-.avatar_full {
-  width: 100%;
+.fullname {
+  display: inline-block;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  color: white;
+  text-shadow: 3px 3px 5px #f00,
+               6px 6px 5px #0f0,
+               9px 9px 5px #00f;
 }
