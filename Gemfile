@@ -64,3 +64,8 @@ gem 'toastr-rails', '~> 1.0', '>= 1.0.3'
 gem 'gravatar-ultimate', '~> 2.0'
 
 gem 'xmlrpc'
+
+# Kaminar para manejar paginación
+gem 'kaminari', '~> 1.0', '>= 1.0.1'
+
+gem 'kaminari-bootstrap', '~> 3.0', '>= 3.0.1'
