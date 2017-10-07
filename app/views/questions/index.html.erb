@@ -8,7 +8,7 @@
                 <div class="posts-details">
                   <h2 class="post-title"><%= link_to question.title, question %></h2>
                   <div class="details-publication">
-                       Preguntó: <%= question.user.fullname %> hace <%= time_ago_in_words(question.created_at) %>
+                       Asked: <%= question.user.fullname %>  <%= time_ago_in_words(question.created_at) %>
                   </div>
                 </div>
              <% end %>

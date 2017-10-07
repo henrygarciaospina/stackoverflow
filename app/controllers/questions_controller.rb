@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
     @question.user = current_user
 
     if @question.save
-      redirect_to root_path, notice: "La pregunta ha sido creada exitosamente"
+      redirect_to root_path
     else
       render 'new'
     end

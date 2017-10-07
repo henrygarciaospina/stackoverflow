@@ -1,21 +1,21 @@
 <div class="row">
-  <div class="col-md-4 col-md-offset-4">
+  <div class="col-md-6 col-md-offset-3">
 
-    <h2 class="text-center">Publicar Pregunta</h2>
+    <h2 class="text-center">Post a question</h2>
     <br/>
 
     <%= form_for @question do |f| %>
 
       <div class="form-group">
-        <%= f.text_field :title, autofocus: true, placeholder: "Título", class: "form-control" %>
+        <%= f.text_field :title, autofocus: true, placeholder: "Títle", class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.text_area :body, autofocus: true, size: "80x10", placeholder: "Descripción", class: "form-control" %>
+        <%= f.text_area :body, autofocus: true, :rows => 8, style: 'width:100%;', placeholder: "Description", class: "form-control" %>
       </div>
 
       <div class="actions">
-        <%= f.submit "¡Preguntar!", class: "btn btn-primary btn-lg btn-block" %>
+        <%= f.submit "¡Ask!", class: "btn btn-primary btn-lg btn-block" %>
       </div>
     <% end %>
 
