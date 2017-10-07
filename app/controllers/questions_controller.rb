@@ -4,6 +4,9 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all.order("created_at DESC").page(params[:page]).per(4)
+    if params[:title].present?
+      @questions = @questions.where("title LIKE ?", "%#{params[:title]}%")
+    end
   end
 
   def new
@@ -15,7 +18,7 @@ class QuestionsController < ApplicationController
     @question.user = current_user
 
     if @question.save
-      redirect_to root_path, notice: "The question has been successfully created"
+      redirect_to root_path, notice: "La pregunta ha sido creada exitosamente"
     else
       render 'new'
     end
