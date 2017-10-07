@@ -15,4 +15,6 @@ class Answer < ApplicationRecord
   has_many :votes, as: :voteable
   belongs_to :user
   belongs_to :question
+
+  validates :body, presence: true
 end

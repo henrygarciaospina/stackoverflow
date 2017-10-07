@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all.order("created_at DESC").page(params[:page]).per(4)
     if params[:title].present?
-      @questions = @questions.where("title LIKE ?", "%#{params[:title]}%")
+      @questions = @questions.where("title LIKE ?", "%#{params[:title].capitalize}%")
     end
   end
 
