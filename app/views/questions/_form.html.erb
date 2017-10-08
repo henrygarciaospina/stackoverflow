@@ -5,6 +5,7 @@
     <br/>
 
     <%= form_for @question do |f| %>
+         <%= render "shared/message" %>
 
       <div class="form-group">
         <%= f.text_field :title, autofocus: true, placeholder: "Títle", class: "form-control" %>

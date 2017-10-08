@@ -18,8 +18,9 @@ class QuestionsController < ApplicationController
     @question.user = current_user
 
     if @question.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'Question saved...'
     else
+      flash.now[:alert] = 'Something went wrong...'
       render 'new'
     end
   end
