@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
-  root 'questions#index'
-
   devise_for :users
 
   resources :questions do
-    resources :comments, only:[:create]
+    resources :comments, only:[:create], module: :questions
   end
 
   resources :answers do
-    resources :comments, only:[:create]
+    resources :comments, only:[:create], module: :answers
   end
-
+  root 'questions#index'
 end
