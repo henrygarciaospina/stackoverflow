@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :private_access, except: [:index, :show]
-  before_action :find_quesion, only: [:show, :edit, :update, :destroy]
+  before_action :find_question, only: [:show, :edit, :update, :destroy]
 
   def index
     @questions = Question.all.order("created_at DESC").page(params[:page]).per(4)

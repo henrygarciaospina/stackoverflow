@@ -4,9 +4,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @commentable.comments.new comment_params
-    @commentable.save
-    redirect_to @notable, notice: "Your comments was successfully posted..."
+    @comment = @commentable.comments.new(comment_params)
+    if @commentable.save
+      redirect_to @commentable, notice: "Your comments was successfully posted..."
+    end
+
   end
 
   private

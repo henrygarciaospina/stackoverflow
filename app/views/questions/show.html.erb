@@ -1,0 +1,16 @@
+ <%= render "shared/message" %>
+
+ <p>
+   <strong>Title:</strong>
+   <%= @question.title %>
+ </p>
+
+ <p>
+   <strong>Question:</strong>
+   <%= @question.body %>
+ </p>
+
+ <%= render partial: "comments/comments", locals: {commentable: @question} %>
+ <%= render partial: "comments/form", locals: {commentable: @question} %>
+
+ 
