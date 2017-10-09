@@ -1,16 +1,20 @@
- <%= render "shared/message" %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
 
- <p>
-   <strong>Title:</strong>
-   <%= @question.title %>
- </p>
+       <%= render "shared/message" %>
 
- <p>
-   <strong>Question:</strong>
-   <%= @question.body %>
- </p>
-
- <%= render partial: "comments/comments", locals: {commentable: @question} %>
- <%= render partial: "comments/form", locals: {commentable: @question} %>
-
- 
+       <p>
+         <h2><%= @question.title %></h2>
+       </p>
+       <p>
+         <strong> <%= @question.body %></strong>
+       </p>
+      <hr>
+       <%= render partial: "comments/comments", locals: {commentable: @question} %>
+       <% if signed_in? %>
+           <%= render partial: "comments/form", locals: {commentable: @question} %>
+       <% end %>
+   </div>
+  </div>
+</div>
