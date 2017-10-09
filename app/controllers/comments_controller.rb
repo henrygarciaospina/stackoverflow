@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
     if @commentable.save
       redirect_to @commentable, notice: "Your comments was successfully posted..."
     end
-
   end
 
   private

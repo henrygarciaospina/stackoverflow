@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :questions do
     resources :comments, only:[:create], module: :questions
+    resources :votes, only:[:create, :destroy], module: :questions
+
   end
 
   resources :answers do
