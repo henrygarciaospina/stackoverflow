@@ -4,6 +4,6 @@ class Votes::VotesController < VotesController
   private
 
     def set_voteable
-      @commentable = Vote.find(params[:vote_id])
+      @voteable = Vote.find(params[:vote_id])
     end
 end
