@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-  before_action :private_access, except: [:index, :show]
+  before_action :authenticate_user!
   before_action :set_voteable, only: [:show, :edit, :update, :destroy]
 
   def create
