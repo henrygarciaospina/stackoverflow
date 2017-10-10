@@ -1,22 +1,33 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
-      <div class="post-wrapper">
-        <div class="post clearfix">
-        <% unless @questions.nil? %>
+     <div class= "questions">
+        <div class="question clearfix">
+          <% unless @questions.nil? %>
             <% @questions.each do |question| %>
-                <div class="posts-details">
-                  <h2 class="post-title"><%= link_to question.title, question %></h2>
-                  <div class="details-publication">
+                <% if question.voted_by? current_user %> 
+                       <%= link_to question_vote_path(question), method: :delete, class: "question-upvote upvote- active" do %>
+                           <span class="upvote-arrow"></span>
+                           <span class="upvote-count"><%= question.votes.count %></span>
+                       <% end %>
+                <% else %>
+                   <%= link_to question_votes_path(question), method: :post, class: "question-upvote" do %>
+                     <span class="upvote-arrow"></span>
+                     <span class="upvote-count"><%= question.votes.count %></span>
+                   <% end %>
+                <% end %>
+                <div class="question-details">
+                    <h2 class="question-title"><%= link_to question.title, question %></h2>
+                    <div class="details-publication">
                        Asked: <%= question.user.fullname %>  <%= time_ago_in_words(question.created_at) %>
-                  </div>
+                   </div>
                 </div>
-             <% end %>
-        </div>
-        <%= paginate(@questions) %>
-        <br>
-      <% end %>
-      </div>
+          <% end %>
+          </div>
+          <%= paginate(@questions) %>
+          <br>
+        <% end %>
+     </div>
     </div>
     <br>
   </div>
