@@ -5,7 +5,7 @@
         <div class="question clearfix">
           <% unless @questions.nil? %>
             <% @questions.each do |question| %>
-                <% if question.voted_by? current_user %> 
+                <% if question.voted_by? current_user %>
                        <%= link_to question_vote_path(question), method: :delete, class: "question-upvote upvote- active" do %>
                            <span class="upvote-arrow"></span>
                            <span class="upvote-count"><%= question.votes.count %></span>
