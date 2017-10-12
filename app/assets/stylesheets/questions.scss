@@ -1,14 +1,10 @@
 // Place all the styles related to the questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body { background-color: #FAFAFA; }
+
 .questions {
   margin-top: 40px;
-
-  .question {
-    padding: 15px 10px;
-    border-radius: 5px;
-
-    &:hover{ background: #f5f5f2; }
 
     .question-upvote {
       position: relative;
@@ -27,6 +23,16 @@
         left: 10px;
         position: absolute;
         top: 0px;
+      }
+
+      .downvote-arrow {
+         border-bottom: 9px solid transparent;
+         border-left: 7px solid transparent;
+         border-right: 7px solid transparent;
+         border-top: 9px solid #534540;
+         left: 10px;
+         position: absolute;
+         top: 0px;
       }
 
       .upvote-count {
@@ -49,17 +55,17 @@
     .question-details {
 
       .question-title a {
-        color: #303030;
+        color: #F04500;
         font-size: 21px;
         line-height: 1;
 
-        &:hover, &:focus { color: #F04500; text-decoration: none; }
+        &:hover, &:focus { color: #FE9A2E; text-decoration: none; }
       }
     }
 
     .product-comments {
       float: right;
-      color: #ccc;
+      color: #CCC;
       padding: 10px;
 
       .glyphicon { font-size: 21px; }
@@ -70,12 +76,11 @@
       }
     }
   }
-}
 
 .product-page {
   .product-header {
     background: #303030;
-    color: #fafaf2;
+    color: #FAFAF2;
     text-align: center;
     padding: 100px 25px;
     margin-top: -20px;
@@ -88,7 +93,7 @@
 
     p {
       font-size: 18px;
-      color: #ddd;
+      color: #DDD;
       margin-top: 15px;
       margin-bottom: 40px;
     }
@@ -102,7 +107,7 @@
       margin-top: 30px;
 
       a {
-        color: #ccc;
+        color: #CCC;
         font-size: 21px;
         margin-right: 5px;
 
