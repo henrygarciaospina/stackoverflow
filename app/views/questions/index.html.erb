@@ -1,29 +1,37 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
-     <div class= "questions">
-        <div class="question clearfix">
-          <h1>Questions</h1>
-          <div class="button-ask-question">
-            <%=  link_to "Ask a question", new_question_path, :method => :get, class: "btn btn-primary" %>
-          </div>
-          <hr>
-          <% unless @questions.nil? %>
-            <% @questions.each do |question| %>
-             <div class="question-details">
-               <h2 class="question-title"><%= link_to question.title, question %></h2>
-                <div>
-                  Asked: <%= question.user.fullname %>  <%= time_ago_in_words(question.created_at) %>
-                </div>
-             </div>
-             <hr>
-          <% end %>
-          </div>
-          <%= paginate(@questions) %>
-          <br>
-        <% end %>
-     </div>
+      <h1>Questions</h1>
     </div>
-    <br>
   </div>
+  <div class= "questions"> <!-- begin questions-->
+     <div class="row">
+          <div class="question clearfix">
+              <div class="col-sm-10 col-sm-offset-1 button-ask-question">
+                <div class="button-ask-question">
+                  <%=  link_to "Ask a question", new_question_path, :method => :get, class: "btn btn-primary" %>
+                </div>
+              </div>
+          </div>
+     </div>
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1"> <!-- begin col-sm-10-->
+      <hr>
+        <% unless @questions.nil? %>
+            <% @questions.each do |question| %>
+               <div class="question-details">
+                 <h2 class="question-title"><%= link_to question.title, question %></h2>
+                  <div>
+                    Asked: <%= question.user.fullname %>  <%= time_ago_in_words(question.created_at) %>
+                  </div>
+               </div>
+               <hr>
+            <% end %>
+            <%= paginate(@questions) %>
+        <% end %>
+        <br>
+      </div> <!-- end col-sm-10-->
+    </div>
+  </div> <!-- end questions-->
+  <br>
 </div>
