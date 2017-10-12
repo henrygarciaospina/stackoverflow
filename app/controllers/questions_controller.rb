@@ -3,10 +3,13 @@ class QuestionsController < ApplicationController
   before_action :find_question, only: [:show, :edit, :update, :destroy]
 
   def index
-    @questions = Question.all.order("created_at DESC").page(params[:page]).per(4)
+     @questions = Question.all
     if params[:title].present?
-      @questions = @questions.where("title LIKE ?", "%#{params[:title].capitalize}%")
+      @questions = @questions.where("title LIKE ?", "%#{params[:title].capitalize}%").page(params[:page]).per(4)
+    else
+      @questions = Question.all.order("created_at DESC").page(params[:page]).per(4)
     end
+
   end
 
   def new
