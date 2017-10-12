@@ -71,3 +71,11 @@ gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'kaminari-bootstrap', '~> 3.0', '>= 3.0.1'
 
 gem 'rails-bootstrap-markdown'
+
+#Required for Markdown
+gem 'redcarpet', '~> 3.4.0'
+
+#Markdown simple editor
+gem 'md_simple_editor', '~> 0.3.0'
+
+gem "font-awesome-rails"

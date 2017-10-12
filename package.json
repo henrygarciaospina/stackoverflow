@@ -1,5 +1,7 @@
 {
   "name": "stackoverflow",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "markdown-it-underline": "^1.0.1"
+  }
 }

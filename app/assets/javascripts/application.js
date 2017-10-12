@@ -13,6 +13,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require bootstrap-markdown-bundle
+//= require md_simple_editor
 //= require rails-ujs
 //= require toastr
 //= require turbolinks
