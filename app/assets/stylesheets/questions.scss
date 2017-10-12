@@ -4,7 +4,14 @@
 body { background-color: #FAFAFA; }
 
 .questions {
-  margin-top: 40px;
+  margin-top: 10px;
+
+
+  .button-ask-question {
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
 
     .question-upvote {
       position: relative;
@@ -61,6 +68,19 @@ body { background-color: #FAFAFA; }
 
         &:hover, &:focus { color: #FE9A2E; text-decoration: none; }
       }
+    }
+
+    h2.question-title {
+      margin-top: 0px;
+    }
+
+    .body-text {
+      text-align: justify !important;
+    }
+
+    hr {
+      margin-top: 10px;
+      margin-bottom: 0;
     }
 
     .product-comments {

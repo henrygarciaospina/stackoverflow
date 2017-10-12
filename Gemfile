@@ -69,3 +69,5 @@ gem 'xmlrpc'
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
 
 gem 'kaminari-bootstrap', '~> 3.0', '>= 3.0.1'
+
+gem 'rails-bootstrap-markdown'

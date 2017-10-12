@@ -7,9 +7,9 @@
        <p>
          <h2><%= @question.title %></h2>
        </p>
-       <p>
-         <strong> <%= @question.body %></strong>
-       </p>
+       <div class="body-text">
+         <span><%= markdown(@question.body) %></span>
+       </div>
       <hr>
        <%= render partial: "comments/comments", locals: {commentable: @question} %>
        <% if signed_in? %>
