@@ -3,13 +3,12 @@ class QuestionsController < ApplicationController
   before_action :find_question, only: [:show, :edit, :update, :destroy]
 
   def index
-     @questions = Question.all
+    @questions = Question.all
     if params[:title].present?
       @questions = @questions.where("title LIKE ?", "%#{params[:title].capitalize}%").page(params[:page]).per(4)
     else
       @questions = Question.all.order("created_at DESC").page(params[:page]).per(4)
     end
-
   end
 
   def new
@@ -19,7 +18,6 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.user = current_user
-
     if @question.save
       redirect_to root_path, notice: 'Question saved...'
     else
@@ -28,7 +26,16 @@ class QuestionsController < ApplicationController
     end
   end
 
+  protected
+
+  def record_not_found
+    flash[:alert] = "The question was not found..."
+    redirect_to root_path
+  end
+
+
   private
+
 		def question_params
 			params.require(:question).permit(:title, :body, :user_id)
 		end
