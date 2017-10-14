@@ -13,7 +13,6 @@
 class Vote < ApplicationRecord
   belongs_to :voteable, polymorphic: true
   belongs_to :user
-  belongs_to :question
 
   def  self.voted_by?(user, voteable)
     voteable.votes.find_by(user_id: user.id)

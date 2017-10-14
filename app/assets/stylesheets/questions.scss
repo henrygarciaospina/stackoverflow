@@ -3,7 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body { background-color: #FAFAFA; }
 
+.title-question {
+  text-align: justify;
+}
+
 .body-show-question {
+  display: block;
   position: relative;
   float: left;
   text-align: justify !important;

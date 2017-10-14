@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <p>
-        <h2><%= @question.title %></h2>
+        <h2 class="title-question"><%= @question.title %></h2>
       </p>
 
        <%= render "shared/message" %>
@@ -24,14 +24,16 @@
                   <span class="upvote-arrow"></span>
                   <span class="upvote-count"><%= @question.votes.count %></span>
                 <% end %>
+            <div class="question clearfix">    
              <% else %>
                 <%= link_to question_votes_path(@question), method: :post, class: "question-upvote" do %>
                   <span class="upvote-arrow"></span>
                   <span class="upvote-count"><%= @question.votes.count %></span>
                 <% end %>
              <% end %>
-            <div class="">
-              <span><%= markdown(@question.body) %></span>
+                <div class="">
+                  <span><%= markdown(@question.body) %></span>
+                </div>
             </div>
             <span class="comments"> <%= render partial: "comments/comments", locals: {commentable: @question} %> </span>
             <%= render partial: "comments/form", locals: {commentable: @question} %>
