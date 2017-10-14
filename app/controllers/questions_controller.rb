@@ -26,6 +26,10 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
   protected
 
   def record_not_found
