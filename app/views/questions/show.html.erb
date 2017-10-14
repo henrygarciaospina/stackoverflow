@@ -4,14 +4,18 @@
       <p>
         <h2><%= @question.title %></h2>
       </p>
+
        <%= render "shared/message" %>
+
        <div class= "questions">
         <%  unless user_signed_in? %>
           <div class="question clearfix">
             <span class="upvote-arrow"></span>
             <span class="upvote-count"><%= @question.votes.count %></span>
-            <span><%= markdown(@question.body) %></span>
-              <%= render partial: "comments/comments", locals: {commentable: @question} %>
+            <div class="">
+                <span><%= markdown(@question.body) %></span>
+            </div>
+                <span class="comments"> <%= render partial: "comments/comments", locals: {commentable: @question} %> </span>
           </div>
         <% else %>
           <% vote = Vote.voted_by?(current_user,  @question) %>
@@ -26,11 +30,13 @@
                   <span class="upvote-count"><%= @question.votes.count %></span>
                 <% end %>
              <% end %>
-                 <span><%= markdown(@question.body) %></span>
-                 <%= render partial: "comments/comments", locals: {commentable: @question} %>
-                 <%= render partial: "comments/form", locals: {commentable: @question} %>
+            <div class="">
+              <span><%= markdown(@question.body) %></span>
+            </div>
+            <span class="comments"> <%= render partial: "comments/comments", locals: {commentable: @question} %> </span>
+            <%= render partial: "comments/form", locals: {commentable: @question} %>
         <% end %>
-       </div>
+      </div>
     </div>
   </div>
 </div>
