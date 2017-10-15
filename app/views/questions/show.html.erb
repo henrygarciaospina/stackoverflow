@@ -39,7 +39,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col-sm-8 body-show-question" >
+		<div class="col-sm-8 body-show-question" >
        <span><%= markdown(@question.body) %></span>
        <span class="comments"> <%= render partial: "comments/comments", locals: {commentable: @question} %> </span>
       <%= render partial: "comments/form", locals: {commentable: @question} %>
