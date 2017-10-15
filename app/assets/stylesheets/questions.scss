@@ -35,7 +35,7 @@ body { background-color: #FAFAFA; }
         border-left: 7px solid transparent;
         border-right: 7px solid transparent;
         border-top: 9px solid transparent;
-        left: 10px;
+        left: 40px;
         position: absolute;
         top: 0px;
       }
@@ -57,6 +57,7 @@ body { background-color: #FAFAFA; }
         font-weight: bold;
         line-height: 1;
         margin-top: 18px;
+        margin-left: 37px;
       }
 
       &:hover .upvote-arrow { border-bottom-color: #F04500; }
@@ -175,7 +176,7 @@ body { background-color: #FAFAFA; }
   }
 
   .comments {
-    
+
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: justify;
