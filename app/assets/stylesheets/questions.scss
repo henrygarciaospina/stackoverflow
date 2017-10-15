@@ -8,6 +8,8 @@ body { background-color: #FAFAFA; }
 }
 
 .body-show-question {
+  margin-top: 20px;
+  margin-left: -60px;
   display: block;
   position: relative;
   float: left;
@@ -26,6 +28,7 @@ body { background-color: #FAFAFA; }
       float: left;
       text-align: center;
       text-decoration: none;
+      margin-left: -35px;
       margin-right: 20px;
       padding: 5px 5px;
       width: 35px;
