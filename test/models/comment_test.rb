@@ -3,11 +3,12 @@
 # Table name: comments
 #
 #  id               :integer          not null, primary key
-#  body             :text
-#  commentable_id   :integer
 #  commentable_type :string
+#  commentable_id   :integer
+#  body             :text
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  user_id          :integer
 #
 
 require 'test_helper'
