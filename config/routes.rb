@@ -3,14 +3,13 @@ Rails.application.routes.draw do
   resources :comments
 
   resources :questions do
-    resources :comments, only:[:create], module: :questions
-    resources :votes, only:[:create, :destroy], module: :questions
-  end
-
-  resources :answers do
-    resources :comments, only:[:create], module: :answers
-    resources :votes, only:[:create, :destroy], module: :answers
-  end
+   resources :answers, except: [:show] do
+     resources :comments, except: [:show], module: :answers
+     resources :votes, only:[:create,:update, :destroy], module: :answers
+   end
+   resources :votes, only:[:create,:update, :destroy], module: :questions
+   resources :comments, except: [:show], module: :questions
+ end
 
   root 'questions#index'
 end

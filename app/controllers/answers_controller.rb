@@ -9,27 +9,20 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = @question.answers.build(:user => current_user , :body => params[:body])
+    @answer = @question.answers.build(answer_params)
+    @answer.user = current_user
     if @answer.save
-      redirect_to root_path, notice: 'Answer saved...'
+      redirect_to question_path(@question), notice: 'Answer saved...'
     else
-      flash.now[:alert] = 'Something went wrong...'
-      render 'new'
+      flash[:alert] = 'Something went wrong...'
+      redirect_to question_path(@question)
     end
   end
-
-  protected
-
-  def record_not_found
-    flash[:alert] = "The answer was not found..."
-    redirect_to root_path
-  end
-
 
   private
 
 		def answer_params
-			params.require(:answer).permit(:body, :user_id, :question_id)
+			params.require(:answer).permit(:body)
 		end
 
 		def find_answer
@@ -40,7 +33,5 @@ class AnswersController < ApplicationController
 		def current_question
 			  @question = Question.find(params[:question_id])
 		end
-
-
 
 end

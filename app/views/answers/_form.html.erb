@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-7 col-sm-offset-1">
-     <%= form_for :answer, url: answers_path do |f| %>
+     <%= form_for :answer, url: question_answers_path(question.id) do |f| %>
       <div class="form-group mkdown_answer">
          <%= md_simple_editor  do %>
             <%= f.text_area :body, autofocus: true, :rows => 6, style: 'width:100%;', placeholder: "Answer", class: "form-control" %>
