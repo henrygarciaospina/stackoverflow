@@ -16,11 +16,12 @@
  *= require md_simple_editor
  */
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
- 
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
 @import "questions";
+@import "answers";
 
 .navbar-nav > li > a.avatar {
   padding-top: 7px;

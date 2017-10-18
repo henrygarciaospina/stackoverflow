@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :comments
 
   resources :questions do
     resources :comments, only:[:create], module: :questions
@@ -8,7 +9,8 @@ Rails.application.routes.draw do
 
   resources :answers do
     resources :comments, only:[:create], module: :answers
+    resources :votes, only:[:create, :destroy], module: :answers
   end
+
   root 'questions#index'
-  
 end

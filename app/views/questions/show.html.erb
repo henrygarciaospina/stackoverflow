@@ -45,5 +45,17 @@
       <%= render partial: "comments/form", locals: {commentable: @question} %>
 	  </div>
   </div>
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-1">
+			<div><h2>(0) Respuesta(s)</h2></div>
+			<span class="comments"> <%= render partial: "comments/comments", locals: {commentable: @answer} %> </span>
+			<%= render partial: "comments/form", locals: {commentable: @answer} %>
+		</div>
+		<div class="row">
+			<div class="col-sm-9 col-sm-offset-1">
+			 <%= render partial: "answers/form", locals: {answer: @answer} %>
+			</div>
+		</div>
+	</div>
 <% end %>
 </div>

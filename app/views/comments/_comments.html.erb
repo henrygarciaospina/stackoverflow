@@ -1,6 +1,8 @@
-<% commentable.comments.each do |comment| %>
-  <hr>
-  <p>
-    <%= comment.body %>
-  </p>
+<% unless commentable.nil? %>
+  <% commentable.comments.each do |comment| %>
+    <hr>
+    <p>
+      <%= comment.body %>
+    </p>
+  <% end %>
 <% end %>
