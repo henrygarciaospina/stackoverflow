@@ -18,7 +18,7 @@ class AnswersController < ApplicationController
       redirect_to question_path(@question)
     end
   end
-
+  
   private
 
 		def answer_params
