@@ -16,11 +16,13 @@
 	  <div class="col-sm-8 body-show-question">
        <span><%= markdown(@question.body) %></span>
 	  </div>
-   </div>
+	</div>
   </div><!-- end questions -->
   <div class="row">
-   <div class="col-sm-8 col-sm-offset-2">
-     <span class="comments"> <%= render partial: "comments/comments", locals: {commentable: @question} %> </span>
+		 <div class="col-sm-1 col-sm-offset-1">
+		 </div>
+   <div class="col-sm-8 comments_signout" >
+     	<span class="comments"> <%= render partial: "comments/comments", locals: {commentable: @question} %> </span>
    </div>
 	</div>
 <% else %>
@@ -47,7 +49,7 @@
   </div>
 	<div class="row">
 		<div class="col-sm-8 col-sm-offset-1">
-			<div><h2>(0) Respuesta(s)</h2></div>
+			<div><h2>(<%= @question.answers.count %>) Respuesta(s)</h2></div>
 			<span class="comments"> <%= render partial: "comments/comments", locals: {commentable: @answer} %> </span>
 			<%= render partial: "comments/form", locals: {commentable: @answer} %>
 		</div>

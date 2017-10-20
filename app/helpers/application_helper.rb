@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def hace_tanto_tiempo (from_time, to_time = 0, include_seconds = false, language = nil)
   # Traducción de distance_of_time_in_words
 
