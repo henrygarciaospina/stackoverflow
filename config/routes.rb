@@ -7,6 +7,7 @@ Rails.application.routes.draw do
      resources :comments, except: [:show], module: :answers
      resources :votes, only:[:create,:update, :destroy], module: :answers
    end
+
    resources :votes, only:[:create,:update, :destroy], module: :questions
    resources :comments, except: [:show], module: :questions
  end

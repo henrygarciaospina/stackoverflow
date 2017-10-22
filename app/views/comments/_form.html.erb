@@ -1,7 +1,7 @@
 
-      <%= form_with(model: [commentable, Comment.new], local: true) do |f|  %>
+      <%= form_for [commentable, Comment.new], local: true do |f|  %>
 
-        <div class="field">
+        <div class="form-group">
           <%= f.text_area :body, autofocus: true, :rows => 2, style: 'width:100%;', placeholder: "Add a comment", class: "form-control" %><br/>
         </div>
         <%= f.submit "Commentate", class: "btn btn-primary pull-right"  %>

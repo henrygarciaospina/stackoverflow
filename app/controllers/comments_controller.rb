@@ -1,7 +1,4 @@
 class CommentsController < ApplicationController
-  def new
-    @comment = @commentable.comments.new
-  end
 
   def create
     @comment = @commentable.comments.new(comment_params)
@@ -14,6 +11,6 @@ class CommentsController < ApplicationController
   private
 
     def comment_params
-      params.require(:comment).permit(:body, :user_id)
+      params.require(:comment).permit(:body)
     end
 end

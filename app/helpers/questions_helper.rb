@@ -5,5 +5,5 @@ module QuestionsHelper
 
   def answers_by_questions
        question.answers.count
-   end
+  end
 end
