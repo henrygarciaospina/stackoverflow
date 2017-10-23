@@ -21,8 +21,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to root_path, notice: 'Question saved...'
     else
-      flash.now[:alert] = 'Something went wrong...'
-      render 'new'
+      render 'new', flash.now[:alert] = 'Something went wrong...'
     end
   end
 

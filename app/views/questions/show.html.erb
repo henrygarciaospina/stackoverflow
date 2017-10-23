@@ -60,15 +60,15 @@
 					<h2>(<%= @question.answers.count %>) Respuesta(s)</h2>
 				</div>
 				<%  @answers_question.each do |aq| %>
-				<div class="body-answer">
-					<span> <%= markdown(aq.body) %> </span>
-				</div>
-				<div class="form-comments-answer">
-					<span>
-						<%= render partial: "comments/form", locals: {commentable: @answer} %>
-					</span>
-				</div>
-
+					<div class="body-answer">
+						<span> <%= markdown(aq.body) %> </span>
+						 	<%= render partial: "comments/comments", locals: {commentable: @answer} %>
+					</div>
+					<div class="form-comments-answer">
+						<span>
+							<%= render partial: "comments/form", locals: {commentable: @answer} %>
+						</span>
+					</div>
 				<% end %>
 			</div>
 			<div class="col-sm-3"></div>
