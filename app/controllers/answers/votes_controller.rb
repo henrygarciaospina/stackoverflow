@@ -4,6 +4,6 @@ class Answers::VotesController < VotesController
   private
 
     def set_voteable
-      @voteable = Answer.find(params[:answer_id])
+      @voteable = Answer.find(params[:id])
     end
 end

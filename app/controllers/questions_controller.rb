@@ -31,14 +31,6 @@ class QuestionsController < ApplicationController
     @answers_question = Answer.where("question_id = ?", @found_question)
   end
 
-  protected
-
-  def record_not_found
-    flash[:alert] = "The question was not found..."
-    redirect_to root_path
-  end
-
-
   private
 
 		def question_params
