@@ -69,11 +69,11 @@
 						  		<span class="comments"> <%= comment.body %> </span>
 									<hr>
 							<% end %>
-						 	<%= render partial: "comments/comments", locals: {commentable: @answer} %>
+						 	<%= render partial: "comments/comments", locals: {commentable: answer} %>
 					</div>
 					<div class="form-comments-answer">
 						<span>
-							<%= render partial: "comments/form", locals: {commentable: @answer} %>
+							<%= render partial: "comments/form", locals: {commentable: answer} %>
 						</span>
 					</div>
 				<% end %>
