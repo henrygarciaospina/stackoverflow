@@ -26,8 +26,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @found_question = find_question.id
-    @answers_question = Answer.where("question_id = ?", @found_question)
+  
   end
 
   private

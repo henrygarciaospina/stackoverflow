@@ -4,7 +4,7 @@ class AnswersController < ApplicationController
   before_action :current_question, only: [:show, :create]
 
   def new
-    @answer = @question.answers.build
+    @answer = question.answers.build
     render :layout => false
   end
 
@@ -18,7 +18,7 @@ class AnswersController < ApplicationController
       redirect_to question_path(@question)
     end
   end
-  
+
   private
 
 		def answer_params

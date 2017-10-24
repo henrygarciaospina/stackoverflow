@@ -58,11 +58,17 @@
 			<div class="col-sm-8 col-sm-offset-1">
 				<div>
 					<h2>(<%= @question.answers.count %>) Respuesta(s)</h2>
+
 				</div>
-				<%  @answers_question.each do |aq| %>
+
+				<% @question.answers.each do |answer|  %>
+
 					<div class="body-answer">
-						<span> <%= markdown(aq.body) %> </span>
-						  <span> <%= aq.comments %> </span>
+						<span> <%= markdown(answer.body) %> </span>
+							<% answer.comments.each do |comment|  %>
+						  		<span class="comments"> <%= comment.body %> </span>
+									<hr>
+							<% end %>
 						 	<%= render partial: "comments/comments", locals: {commentable: @answer} %>
 					</div>
 					<div class="form-comments-answer">
