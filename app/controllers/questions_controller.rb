@@ -26,7 +26,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-  
   end
 
   private

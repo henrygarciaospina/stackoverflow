@@ -4,12 +4,17 @@ class VotesController < ApplicationController
 
   def create
     @voteable.votes.create(user: current_user)
-    redirect_to question_path(@voteable), notice: "A successfully voted for the question..."
+    redirect_to question_path(question), notice: "A successfully voted for the question..."
   end
 
   def destroy
     @voteable.votes.where(user: current_user).take.try(:destroy)
-    redirect_to question_path(@voteable), notice: "Successfully removed question vote"
+    redirect_to question_path(question), notice: "Successfully removed vote"
   end
 
+  private
+
+    def question
+      @voteable.try(:question) || @voteable
+    end
 end
