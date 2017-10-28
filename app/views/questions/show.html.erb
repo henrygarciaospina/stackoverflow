@@ -24,17 +24,16 @@
 				<div class="col-sm-8 body-show-question">
 					<span> <%= markdown(@question.body) %> </span>
 					<span class="comments">
-						<%= render partial: "comments/comments", locals: {commentable: @question} %>
+					 <%= render partial: "comments/comments", locals: {commentable: @question} %>
 					</span>
-					<%= render partial: "comments/form", locals: {commentable: [@question]} %>
+					 <%= render partial: "comments/form", locals: {commentable: [@question]} %>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-1">
-					<div>
 						<h2>(<%= @question.answers.count %>) Respuesta(s)</h2>
-					</div>
-
+				</div>
+			</div>	
 					<% @question.answers.each do |answer|  %>
 					<div class="row">
 					  <div class="col-sm-1 col-sm-offset-1">
@@ -42,24 +41,23 @@
 					  	<% if vote %>
 							  <%= link_to question_answer_vote_path(@question, answer), method: :delete, class: "question-upvote upvote-active" do %>
 								  <span class="upvote-arrow"></span>
-								  <span class="upvote-count"><%=answer.votes.count %></span>
+								  <span class="upvote-count"><%= answer.votes.count %></span>
 							  <% end %>
 					   	<% else %>
 						  	<%= link_to question_answer_votes_path(@question, answer, vote), method: :post, class: "question-upvote" do %>
 									<span class="upvote-arrow"></span>
+									<span class="upvote-count"><%= answer.votes.count %></span>
 						  	<% end %>
 					  	<% end %>
 						</div>
-
-				  	<div class="body-answer">
+				  	<div class="col-sm-8 body-show-question">
 							<span> <%= markdown(answer.body) %> </span>
-							 	<%= render partial: "comments/comments", locals: {commentable: answer} %>
-						</div>
-						<div class="form-comments-answer">
-							<span>
-								<%= render partial: "comments/form", locals: {commentable: [answer.question, answer]} %>
+							<span class="comments">
+								 <%= render partial: "comments/comments", locals: {commentable: answer} %>
 							</span>
+							   <%= render partial: "comments/form", locals: {commentable: [answer.question, answer]} %>
 						</div>
+
 					<% end %>
 				</div>
 			</div>
