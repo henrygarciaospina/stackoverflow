@@ -5,28 +5,82 @@
 		</div>
 	</div>
 	<div class="questions">
-		<%  if user_signed_in? %>
+		<% if user_signed_in? %>
 	   	<div class="row">
 			  <div class="col-sm-1 col-sm-offset-1">
-				 <% vote = Vote.voted_by?(current_user,  @question) %>
-			   <% if vote %>
+					<% vote = Vote.voted_by?(current_user,  @question) %>
+			  	<% if vote %>
 					  <%= link_to question_vote_path(@question, vote), method: :delete, class: "question-upvote upvote-active" do %>
 						  <span class="upvote-arrow"></span>
 						  <span class="upvote-count"><%= @question.votes.count %></span>
 					  <% end %>
-			   <% else %>
-				   <%= link_to question_votes_path(@question), method: :post, class: "question-upvote" do %>
-						 <span class="upvote-arrow"></span>
-					   <span class="upvote-count"><%= @question.votes.count %></span>
-				   <% end %>
-			  <% end %>
+			  	<% else %>
+				  	<%= link_to question_votes_path(@question), method: :post, class: "question-upvote" do %>
+							<span class="upvote-arrow"></span>
+					  	<span class="upvote-count"><%= @question.votes.count %></span>
+				  	<% end %>
+			  	<% end %>
+				</div>
+				<div class="col-sm-8 body-show-question">
+					<span> <%= markdown(@question.body) %> </span>
+					<span class="comments">
+						<%= render partial: "comments/comments", locals: {commentable: @question} %>
+					</span>
+					<%= render partial: "comments/form", locals: {commentable: [@question]} %>
+				</div>
 			</div>
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-1">
+					<div>
+						<h2>(<%= @question.answers.count %>) Respuesta(s)</h2>
+					</div>
+
+					<% @question.answers.each do |answer|  %>
+					<div class="row">
+					  <div class="col-sm-1 col-sm-offset-1">
+							<% vote = Vote.voted_by?(current_user, answer) %>
+					  	<% if vote %>
+							  <%= link_to question_answer_vote_path(@question, answer), method: :delete, class: "question-upvote upvote-active" do %>
+								  <span class="upvote-arrow"></span>
+								  <span class="upvote-count"><%=answer.votes.count %></span>
+							  <% end %>
+					   	<% else %>
+						  	<%= link_to question_answer_votes_path(@question, answer, vote), method: :post, class: "question-upvote" do %>
+									<span class="upvote-arrow"></span>
+						  	<% end %>
+					  	<% end %>
+						</div>
+
+				  	<div class="body-answer">
+							<span> <%= markdown(answer.body) %> </span>
+							 	<%= render partial: "comments/comments", locals: {commentable: answer} %>
+						</div>
+						<div class="form-comments-answer">
+							<span>
+								<%= render partial: "comments/form", locals: {commentable: [answer.question, answer]} %>
+							</span>
+						</div>
+					<% end %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-1">
+					<%= render partial: "answers/form", locals: {question: @question} %>
+				</div>
+			</div>
+		<% else %>
+			<div class="row">
+				<div class="col-sm-1 col-sm-offset-1">
+					<div class="question-upvote">
+						<span class="upvote-arrow"></span>
+						<span class="upvote-count"><%= @question.votes.count %></span>
+					</div>
+			  </div>
 			<div class="col-sm-8 body-show-question">
 				<span> <%= markdown(@question.body) %> </span>
 				<span class="comments">
 					<%= render partial: "comments/comments", locals: {commentable: @question} %>
 				</span>
-				<%= render partial: "comments/form", locals: {commentable: [@question]} %>
 			</div>
 		</div>
 		<div class="row">
@@ -35,70 +89,13 @@
 					<h2>(<%= @question.answers.count %>) Respuesta(s)</h2>
 				</div>
 				<% @question.answers.each do |answer|  %>
-
-				<div class="row">
-				  <div class="col-sm-1 col-sm-offset-1">
-					 <% vote = Vote.voted_by?(current_user,  answer) %>
-				   <% if vote %>
-						  <%= link_to question_vote_path(answer, vote), method: :delete, class: "question-upvote upvote-active" do %>
-							  <span class="upvote-arrow"></span>
-							  <span class="upvote-count"><%=answer.votes.count %></span>
-						  <% end %>
-				   <% else %>
-					   <%= link_to question_vote_path(answer, vote), method: :post, class: "question-upvote" do %>
-							 <span class="upvote-arrow"></span>
-
-					   <% end %>
-				  <% end %>
-				</div>
-
-			  <div class="body-answer">
+					<div class="body-answer">
 						<span> <%= markdown(answer.body) %> </span>
-						 	<%= render partial: "comments/comments", locals: {commentable: answer} %>
-					</div>
-					<div class="form-comments-answer">
-						<span>
-							<%= render partial: "comments/form", locals: {commentable: [answer.question, answer]} %>
-						</span>
+						<%= render partial: "comments/comments", locals: {commentable: answer} %>
 					</div>
 				<% end %>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-sm-8 col-sm-offset-1">
-				<%= render partial: "answers/form", locals: {question: @question} %>
-			</div>
-		</div>
-
-	<%  else %>
-
-	<div class="row">
-		<div class="col-sm-1 col-sm-offset-1">
-			<div class="question-upvote">
-				<span class="upvote-arrow"></span>
-				<span class="upvote-count"><%= @question.votes.count %></span>
-			</div>
-	  </div>
-	<div class="col-sm-8 body-show-question">
-		<span> <%= markdown(@question.body) %> </span>
-		<span class="comments">
-			<%= render partial: "comments/comments", locals: {commentable: @question} %>
-		</span>
-	</div>
-	</div>
-	<div class="row">
-	<div class="col-sm-8 col-sm-offset-1">
-		<div>
-			<h2>(<%= @question.answers.count %>) Respuesta(s)</h2>
-		</div>
-		<% @question.answers.each do |answer|  %>
-			<div class="body-answer">
-				<span> <%= markdown(answer.body) %> </span>
-					<%= render partial: "comments/comments", locals: {commentable: answer} %>
-			</div>
-		<% end %>
-	</div>
-	</div>
 	</div>
 	<% end %>
 </div>
