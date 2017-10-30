@@ -80,18 +80,26 @@
                </div>
             </div>
             <div class="row">
-                <div class="col-sm-8 col-sm-offset-1">
+                <div class="col-sm-8 col-sm-offset-1 ">
                     <div>
                         <h2>(<%= @question.answers.count %>) Respuesta(s)</h2>
                     </div>
-                    <% @question.answers.each do |answer|  %>
-                        <div class="body-answer">
-                            <span> <%= markdown(answer.body) %> </span>
-                            <%= render partial: "comments/comments", locals: {commentable: answer} %>
-                        </div>
-                    <% end %>
+                </div>
+           </div>
+          <% @question.answers.each do |answer|  %>
+            <div class="row">
+                <div class="col-sm-1 col-sm-offset-1 question-upvote">
+                   <span class="upvote-arrow"></span>
+                   <span class="upvote-count"><%= answer.votes.count %></span>
+                </div>
+                <div class="col-sm-8 body-show-question">
+                      <span> <%= markdown(answer.body) %> </span>
+                      <span class="comments">
+                        <%= render partial: "comments/comments", locals: {commentable: answer} %>
+                      </span>
                 </div>
             </div>
-        <% end %>
-    </div>  <!-- end  class questions-->
+          <% end %> <!-- end do |answer|-->
+    </div><!-- end  class questions-->
+  <% end %>  
 </div>
