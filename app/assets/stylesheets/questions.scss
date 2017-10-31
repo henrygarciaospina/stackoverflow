@@ -6,6 +6,10 @@ body {
   background-color: #FAFAFA;
 }
 
+.asked {
+    color: rgb(116, 117, 119);
+}
+
 .title-question {
   text-align: justify;
 }
@@ -25,6 +29,7 @@ body {
   margin-bottom: 5px;
   margin-right: 20px;
   text-align: justify;
+  color: rgb(116, 117, 119);
   font-size: 9pt;
 }
 
@@ -119,6 +124,7 @@ body {
 
     .data-label {
       margin-top: 15px;
+      color: rgb(116, 117, 119);
     }
 
     div.col-sm-1.data {
@@ -139,24 +145,11 @@ body {
     margin-bottom: 10px;
     border-color: #C9C5C5;
   }
-
-  .product-comments {
-    float: right;
-    color: #CCC;
-    padding: 10px;
-
-    .glyphicon {
-      font-size: 21px;
-    }
-
-    .comment-count {
-      margin-left: 15px;
-      font-size: 18px;
-      vertical-align: text-bottom;
-    }
-  }
 }
 
+.head-answer{
+    margin-left: 110px;
+}
 
 .form-comments-answer {
   margin-top: 15px;
