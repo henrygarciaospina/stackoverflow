@@ -31,7 +31,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-1">
-                    <h2>(<%= @question.answers.count %>) Respuesta(s)</h2>
+                    <h2>(<%= @question.answers.count %>) Answer(s)</h2>
                 </div>
             </div>
             <% @question.answers.each do |answer|  %>
@@ -61,6 +61,7 @@
             <% end %> <!-- end do |answer|-->
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-1">
+                    <h2>Your answer</h2>
                     <%= render partial: "answers/form", locals: {question: @question} %>
                 </div>
             </div>
@@ -82,15 +83,17 @@
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-1 ">
                     <div>
-                        <h2>(<%= @question.answers.count %>) Respuesta(s)</h2>
+                        <h2>(<%= @question.answers.count %>) Answer(s)</h2>
                     </div>
                 </div>
            </div>
           <% @question.answers.each do |answer|  %>
             <div class="row">
-                <div class="col-sm-1 col-sm-offset-1 question-upvote">
-                   <span class="upvote-arrow"></span>
-                   <span class="upvote-count"><%= answer.votes.count %></span>
+                <div class="col-sm-1 col-sm-offset-1">
+                  <div class="question-upvote">
+                     <span class="upvote-arrow"></span>
+                     <span class="upvote-count"><%= answer.votes.count %></span>
+                  </div>
                 </div>
                 <div class="col-sm-8 body-show-question">
                       <span> <%= markdown(answer.body) %> </span>
@@ -101,5 +104,5 @@
             </div>
           <% end %> <!-- end do |answer|-->
     </div><!-- end  class questions-->
-  <% end %>  
+  <% end %>
 </div>
