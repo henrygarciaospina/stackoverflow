@@ -14,8 +14,7 @@ class AnswersController < ApplicationController
     if @answer.save
       redirect_to question_path(@question), notice: 'Answer saved...'
     else
-      flash[:alert] = 'Something went wrong...'
-      redirect_to question_path(@question)
+      redirect_to question_path(@question), flash: { alert: "Your answer wasn't posted..." }
     end
   end
 
