@@ -4,10 +4,11 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new(comment_params)
     @comment.user = current_user
     commentable = @commentable.try(:question) || @commentable
+    
     if @comment.save
-       redirect_to question_path(commentable), notice: "Your comment was posted successfully..."
+      redirect_to question_path(commentable), notice: "Your comment was posted successfully..."
     else
-       redirect_to question_path(commentable), flash: { alert: "Your comment wasn't posted..." }
+      redirect_to question_path(commentable), flash: { alert: @comment.errors.full_messages.first }
     end
   end
 
