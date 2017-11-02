@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save
        redirect_to question_path(commentable), notice: "Your comment was posted successfully..."
     else
-       redirect_to question_path(commentable), flash: { alert: "Your comment wasn't posted..." }
+       redirect_to question_path(commentable), flash: { alert: "Comments should not go blank..." }
     end
   end
 
